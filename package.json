@@ -1,0 +1,42 @@
+{
+  "name": "dsh-priestess-persona",
+  "version": "0.1.0",
+  "description": "普瑞赛斯 agent preset：工具能力与 cordis preset 一致、人格换成普瑞赛斯，并自带创造模式技能。",
+  "type": "module",
+  "private": true,
+  "icon": "./icon.svg",
+  "meta": {
+    "title": "普瑞赛斯人设",
+    "description": "新增「普瑞赛斯」agent preset：工具能力与 cordis preset 一致，人格换成普瑞赛斯，并自带创造模式技能。"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent-preset",
+    "persona",
+    "priestess",
+    "arknights",
+    "普瑞赛斯"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "cordis.patch.yml",
+    "skills",
+    "global",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "//": "本包只有 bundle patch，没有运行时依赖：一个 link: 安装的插件只能从自己的真实目录解析 import，任何只随 DSH 安装包发布的依赖都会 ERR_MODULE_NOT_FOUND 并把整个 profile 拖down。global/ 是第二个可单独安装的 bundle（默认不装 = 不启用）。exports 只为展示元信息而存在：readPluginMeta 通过 <包名>/locale/en.json 与 <包名>/package.json 取标题、描述和图标。"
+}
